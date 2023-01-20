@@ -1,0 +1,38 @@
+{% extends '_base.html' %}
+
+{% block title %}{{ log.sub_name }} Logs{% endblock title %}
+
+{% load socialaccount %}
+{% load static %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+
+    {% if user.is_authenticated %}
+        {% for log in log_list %}
+            <div>
+                <p> Mod Name: {{ log.mod_name }} </p>
+                <p> Sub User: {{ log.sub_user }} </p>
+                <p> Sub Name: {{ log.sub_name }} </p>
+                <p> Mod Action: {{ log.mod_action }} </p>
+                <p> Mod Time: {{ log.time }} </p>
+                <p> Body Text: {{ log.target_body }} </p>
+                <a href="">{{  log.mod_link }}</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        {% for log in log_view %}
+            <div>
+                <p> Mod Name: {{ log.mod_name }} </p>
+                <p> Mod Action: {{ log.mod_action }} </p>
+                <p> Mod Time: {{ log.time }} </p>
+                <p> Body Text: {{ log.target_body }} </p>
+                <a href="">{{  log.mod_link }}</a>
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock content %}
