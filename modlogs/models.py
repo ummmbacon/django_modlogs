@@ -8,8 +8,8 @@ class ModLog(models.Model):
     mod_name = models.CharField(max_length=25)
     mod_action = models.CharField(max_length=20)
     mod_link = models.URLField()
-    mod_time = models.DateTimeField(auto_now_add=False, auto_now=False)
-    mod_item = models.TextField()
+    mod_time = models.TextField()
+    mod_item = models.TextField(null=True)
 
     def __str__(self):
         return self.unique_id
