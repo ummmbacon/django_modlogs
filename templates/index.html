@@ -17,9 +17,9 @@
                 <p> Sub User: {{ log.sub_user }} </p>
                 <p> Sub Name: {{ log.sub_name }} </p>
                 <p> Mod Action: {{ log.mod_action }} </p>
-                <p> Mod Time: {{ log.time }} </p>
-                <p> Body Text: {{ log.target_body }} </p>
-                <a href="">{{  log.mod_link }}</a>
+                <p> Mod Time: {{ log.time|date:'Y-m-d H:i'}} </p>
+                <p> Body Text: {{ log.target_body|truncatewords:50 }} </p>
+                <a href="{{ log.mod_link}}">Link to item</a>
             </div>
         {% endfor %}
     {% else %}
@@ -27,9 +27,9 @@
             <div>
                 <p> Mod Name: {{ log.mod_name }} </p>
                 <p> Mod Action: {{ log.mod_action }} </p>
-                <p> Mod Time: {{ log.time }} </p>
-                <p> Body Text: {{ log.target_body }} </p>
-                <a href="">{{  log.mod_link }}</a>
+                <p> Mod Time: {{ log.time|time }} </p>
+                <p> Body Text: {{ log.target_body|truncatewords:50 }} </p>
+                <a href="Link">{{ log.mod_link }} </a>
             </div>
         {% endfor %}
 
