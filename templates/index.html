@@ -5,6 +5,7 @@
 {% load socialaccount %}
 {% load static %}
 
+
 {% block content %}
     <br>
     <br>
@@ -12,25 +13,43 @@
 
     {% if user.is_authenticated %}
         {% for log in log_list %}
-            <div>
-                <p> Mod Name: {{ log.mod_name }} </p>
-                <p> Sub User: {{ log.sub_user }} </p>
-                <p> Sub Name: {{ log.sub_name }} </p>
-                <p> Mod Action: {{ log.mod_action }} </p>
-                <p> Mod Time (UTC): {{ log.mod_time|date:'Y-m-d H:i'}} </p>
-                <p> Body Text: {{ log.target_body|truncatewords:50 }} </p>
-                <a href="{{ log.mod_link}}">Link to item</a>
+        <div class="container-sm text-left border">
+          <div class="row border-bottom">
+            <div class="col-sm-7">{{ log.mod_action }}</div>
+            <div class="col-sm-5">{{ log.mod_time|date:'Y-m-d H:i'}} </div>
+          </div>
+            <div class="row">
+                <div class="col-sm-12">{{ log.mod_item|truncatewords:30 }}</div>
+                <br>
             </div>
+          <div class="row border-top">
+            <div class="col-sm-7">{{ log.mod_name }}</div>
+            <div class="col-sm-5">{{ log.sub_user }}</div>
+          </div>
+            <div class="row border-top">
+                <div class="col-sm-12"><a href="{{ log.mod_link}}">log permalink</a></div>
+            </div>
+          </div>
+            <div class="row"></div>
+            <br><br>
         {% endfor %}
     {% else %}
-        {% for log in log_view %}
-            <div>
-                <p> Mod Name: {{ log.mod_name }} </p>
-                <p> Mod Action: {{ log.mod_action }} </p>
-                <p> Mod Time (UTC): {{ log.mod_time|time }} </p>
-                <p> Body Text: {{ log.target_body|truncatewords:50 }} </p>
-                <a href="Link">{{ log.mod_link }} </a>
+         {% for log in log_list %}
+        <div class="container text-left border">
+          <div class="row border-bottom">
+            <div class="w-75 p-3">{{ log.mod_action }}</div>
+            <div class="w-25 p-3">{{ log.mod_time|date:'Y-m-d H:i'}} </div>
+          </div>
+            <div class="row">
+                <div class="w-100 p-5">{{ log.mod_item|truncatewords:30 }}</div>
+                <br>
             </div>
+            <div class="row border-top">
+                <div class="w-100 p-3"><a href="{{ log.mod_link}}">log permalink</a></div>
+            </div>
+          </div>
+            <div class="row"></div>
+            <br><br>
         {% endfor %}
 
     {% endif %}
