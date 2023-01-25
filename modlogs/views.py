@@ -13,7 +13,7 @@ class Home(TemplateView):
 
 def index(request, subreddit):
     template = loader.get_template('index.html')
-    all_logs = ModLog.objects.filter(sub_name=subreddit).order_by('-mod_time__date')
+    all_logs = ModLog.objects.filter(sub_name=subreddit).order_by('-mod_time__date', '-mod_time__time')
     context = {'log_list': all_logs}
 
     return StreamingHttpResponse(template.render(context, request))
