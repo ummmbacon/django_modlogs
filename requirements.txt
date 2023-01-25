@@ -8,3 +8,4 @@ django-allauth==0.51.0
 environs[django]==9.5.0
 praw==7.6.1
 DateTime==5.0.0
+django-markdownify==0.9.2

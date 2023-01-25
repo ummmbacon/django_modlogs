@@ -3,6 +3,7 @@
 {% block title %}{{ log.sub_name }} Logs{% endblock title %}
 
 {% load socialaccount %}
+{% load markdownify %}
 {% load static %}
 
 
@@ -19,7 +20,7 @@
             <div class="col-sm-5">{{ log.mod_time|date:'Y-m-d H:i'}} </div>
           </div>
             <div class="row">
-                <div class="col-sm-12">{{ log.mod_item|truncatewords:30 }}</div>
+                <div class="col-sm-12">{{ log.mod_item| markdownify | truncatewords:50 }}</div>
                 <br>
             </div>
           <div class="row border-top">
@@ -41,7 +42,7 @@
             <div class="w-25 p-3">{{ log.mod_time|date:'Y-m-d H:i'}} </div>
           </div>
             <div class="row">
-                <div class="w-100 p-5">{{ log.mod_item|truncatewords:30 }}</div>
+                <div class="w-100 p-5">{{ log.mod_item|markdownify|truncatewords:50 }}</div>
                 <br>
             </div>
             <div class="row border-top">
