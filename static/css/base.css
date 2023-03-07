@@ -1,0 +1,11 @@
+div.container-sm{
+    float: left;
+    width: 60%;
+    margin: 15px;
+    border: 2px solid #000000;
+}
+
+div.nav-link{
+    text-align: right;
+}
+

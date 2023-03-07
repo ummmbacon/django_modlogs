@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,8 +25,8 @@
     <title>Open Modlogs</title>
   </head>
   <body>
-    <div class="container" data-bs-theme="light">
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <div class="container" id="foo" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">Open ModLogs</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-targ\
@@ -47,8 +47,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account_login' %}" aria-label="Reddit Log In">Reddit Log In</a>
                         </li>
-                        {% endif %} </ul>
-                    </ul>
+                        {% endif %}
+                        </ul>
+                        <form class="d-flex" action="{% url 'search_results' %}" method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-\ label="Search" >
+                        <button class="btn btn-outline-success" type="submit">Search</button> </form>
                 </div>
             </div>
         </nav>

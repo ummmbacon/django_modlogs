@@ -1,0 +1,13 @@
+<!-- templates/search_results.html -->
+{% extends "_base.html" %}
+
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+    <h1>Search Results</h1>
+    {% for log in log_list %}
+        <div>
+            <h3><a href="{{ log.unique_id}}">{{ log.mod_action }}</a></h3> <p>Author: {{ log.sub_user }}</p>
+        </div>
+{% endfor %}
+{% endblock content %}
